@@ -2,7 +2,7 @@
   <% @post.comments.each do |comment| %>
     <p>
       <%= comment.body %>
-      <%= comment.user.username %>
+      <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user.id %>
     </p>
   <% end %>
 <% end %>

@@ -1,7 +1,7 @@
 <%="submitted #{time_ago_in_words(@post.created_at)} ago"%>
-<%= "by " + @post.user.username %>
+<%= "by "%><%= link_to @post.user.username, controller: "users", action: "show", id: @post.user.id %>
 <p>
-	<%= @post.title %>
+	<%= simple_format @post.title %>
 </p>
 
 <p>
