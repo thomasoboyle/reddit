@@ -2,8 +2,10 @@
 
 one:
   body: MyText
-  post: one
+  parent: one
+  parent_type: Parent
 
 two:
   body: MyText
-  post: two
+  parent: two
+  parent_type: Parent
