@@ -7,15 +7,11 @@ Rails.application.routes.draw do
   post '/login', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
 
-  root 'posts#index'
-
   resources :posts do
     resources :comments
   end
 
-  resources :comments do
-    resources :comments
-  end
+  root 'posts#index'
 
   resources :users do
     resources :comments
