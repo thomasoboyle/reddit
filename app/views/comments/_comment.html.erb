@@ -3,6 +3,7 @@
     <p>
       <%= comment.body %>
       <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user.id %>
+      <%= link_to 'reply', new_comment_path(comment.id) %>
     </p>
   <% end %>
 <% end %>
