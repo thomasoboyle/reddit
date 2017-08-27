@@ -1,5 +1,0 @@
-<%= form_for [@comment, Comment.new] do |f| %>
-  <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-  <%= submit_tag "Reply to Comment", :name => 'reply_comment' %>
-    <%= hidden_field_tag :comment_id, @comment.id %>
-<% end %>
