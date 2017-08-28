@@ -5,7 +5,7 @@
       <td><%= link_to post.title, post_path(post)%></td>
     </tr>
     <tr>
-      <td><%= simple_format link_to post.user.username, controller: "users", action: "show", id: post.user.id %>
+      <td><%= simple_format link_to post.user.username, controller: "users", action: "show", id: post.user %>
       </td>
 
     </tr>

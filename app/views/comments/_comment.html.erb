@@ -2,7 +2,7 @@
   <% @post.comments.each do |comment| %>
     <p>
       <%= comment.body %>
-      <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user.id %>
+      <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %>
       <%= link_to 'reply', new_comment_path(comment.id) %>
     </p>
     <%= form_for [@comment, Comment.new] do |f| %>
