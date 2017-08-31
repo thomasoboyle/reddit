@@ -5,7 +5,7 @@
     </tr>
     <tr>
       <td><%="submitted #{time_ago_in_words(post.created_at)} ago by "%>
-          <%= link_to post.user.username, controller: "users", action: "show", id: post.user %>
+          <%= link_to post.user.username, controller: "users", action: "show" %>
       </td>
     </tr>
     <tr>
