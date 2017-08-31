@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by_username(params[:username])
+    @posts = @user.posts
+    @comments = @user.comments
   end
 
   def new
@@ -18,7 +20,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
-  end
+  private
+    def user_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
 end
