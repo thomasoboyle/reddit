@@ -1,0 +1,15 @@
+<% @user.posts.each do |post| %>
+  <table>
+    <tr><%= simple_format "" %>
+      <td><%= link_to post.title, post_path(post)%></td>
+    </tr>
+    <tr>
+      <td><%="submitted #{time_ago_in_words(post.created_at)} ago by "%>
+          <%= link_to post.user.username, controller: "users", action: "show", id: post.user %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= link_to post.comments.count.to_s + " comment".pluralize(post.comments.count), post_path(post) %></td>
+    </tr>
+  </table>
+<% end %>

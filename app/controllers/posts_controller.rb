@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_page, only: [:index]
+  POSTS_PER_PAGE = 10
 
   def new
   	@post = Post.new
@@ -27,11 +29,15 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		@posts = Post.order(:id).limit(POSTS_PER_PAGE).offset(@page*POSTS_PER_PAGE)
 	end
 
   private
   	def post_params
   		params.require(:post).permit(:title, :text)
   	end
+
+    def set_page
+       @page = params[:page] || 0
+    end
 end

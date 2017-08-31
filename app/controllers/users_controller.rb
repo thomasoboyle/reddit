@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:username])
+    @posts = @user.posts
+    @comments = @user.comments
   end
 
   def new
@@ -16,6 +18,11 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def user_posts
+    @user = User.find_by_username(params[:username])
+    @posts = @user.posts
   end
 
   def user_params
