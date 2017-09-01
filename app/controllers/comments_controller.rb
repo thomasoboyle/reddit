@@ -1,18 +1,14 @@
 class CommentsController < ApplicationController
+  before_action :find_parent
+
   def show
-  	@comment = Comment.find(params[:id])
+  	@comment = @parent.comments.new comment_params
   end
 
   def create
-    if params[:add_comment]
-      parent = Post.find(params[:post_id])
-    elsif params[:reply_comment]
-      parent = Comment.find params[:commenter_id]
-    end
-
-    @comment = parent.comments.create(comment_params)
+    @comment = @parent.comments.new(comment_params)
     @comment.user = current_user
-    if parent.save && @comment.save
+    if @parent.save && @comment.save
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
@@ -21,8 +17,14 @@ class CommentsController < ApplicationController
   end
 
   private
+
     def comment_params
-      params.require(:comment).permit(:body)
+      params[:comment][:user_id] = current_user.id
+      params.require(:comment).permit(:body, :user_id)
     end
 
+    def find_parent
+      @parent = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+      @parent = Post.find_by_id(params[:post_id]) if params[:post_id]
+    end
 end

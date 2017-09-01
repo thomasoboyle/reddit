@@ -4,10 +4,12 @@
       <%= comment.body %>
       <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %>
       <%= link_to 'reply', new_comment_path(comment.id) %>
+      <div class="reply-button">reply</div>
+      <div class="reply-form">
     </p>
     <%= form_for [@comment, Comment.new] do |f| %>
       <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-      <%= submit_tag "Reply to Comment", :name => 'reply_comment' %>
+      <%= f.submit "Reply to Comment", :name => 'reply_comment' %>
         <%= hidden_field_tag :commenter_id, comment.id %>
     <% end %>
   <% end %>
