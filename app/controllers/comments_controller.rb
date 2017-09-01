@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :find_parent
 
   def show
-  	@comment = @parent.comments.new comment_params
+    @comment = @parent.comments.new comment_params
   end
 
   def create

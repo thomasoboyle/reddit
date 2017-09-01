@@ -14,4 +14,4 @@
 
 <%= render 'comments/form' %>
 
-<%= render 'comments/comment' %>
+<ul> <%= render partial: 'comments/comment', collection: @post.comments %> </ul>

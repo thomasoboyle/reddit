@@ -4,7 +4,7 @@
   <%= link_to 'reply', new_comment_path(@comment.id) %>
   <%= form_for [@comment, Comment.new] do |f| %>
     <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-    <%= submit_tag "Reply to Comment", :name => 'reply_comment' %>
+    <%= submit_tag "Reply to Comment", :name => "reply_comment" %>
       <%= hidden_field_tag :commenter_id, @comment.id %>
   <% end %>
 </p>
@@ -20,7 +20,7 @@
     <%= form_for [comment, Comment.new] do |f| %>
     <%= hidden_field_tag :commenter_id, comment.id %>
       <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-      <%= submit_tag "Reply to Comment", :name => 'reply_comment' %>
+      <%= submit_tag "Reply to Comment", :name => "reply_comment" %>
 
     <% end %>
   <% end %>
