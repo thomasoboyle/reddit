@@ -1,14 +1,13 @@
-<% if @post.comments.any? %>
-  <% @post.comments.each do |comment| %>
-    <p>
-      <%= comment.body %>
-      <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %>
-      <%= link_to 'reply', new_comment_path(comment.id) %>
-    </p>
-    <%= form_for [@comment, Comment.new] do |f| %>
-      <%= f.text_area :body, placeholder: "Add a comment" %><br/>
-      <%= submit_tag "Reply to Comment", :name => 'reply_comment' %>
-        <%= hidden_field_tag :commenter_id, comment.id %>
-    <% end %>
-  <% end %>
-<% end %>
+<li>
+    <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %> ago
+    <br>
+    <%= comment.body %>
+    <div class="reply-button">reply</div>
+    <div class="reply-form">
+      <%= form_for [comment, Comment.new] do |f| %>
+        <%= f.text_area :body %>
+        <%= f.submit "save" %>
+      <% end %>
+    </div>
+    <ul><%= render partial: 'comments/comment', collection: comment.comments %></ul>
+</li>

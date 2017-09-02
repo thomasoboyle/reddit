@@ -15,3 +15,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('.reply-form').hide();
+  $('.reply-button').on('click', function(e){
+    e.preventDefault();
+    $(this).next('.reply-form').toggle(); // Show form on button click
+  });
+});

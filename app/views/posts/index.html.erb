@@ -6,10 +6,13 @@
         <%= link_to post.title, post_path(post)%>
         <%="submitted #{time_ago_in_words(post.created_at)} ago by "%>
         <%= link_to post.user.username, controller: "users", action: "show", id: post.user %>
-        <%= simple_format link_to post.comments.count.to_s + " comment".pluralize(post.comments.count), post_path(post) %>
+        <div class="bottom-links">
+          <%= simple_format link_to post.comments.count.to_s + " comment".pluralize(post.comments.count), post_path(post) %>
+        </div>
       </td>
     </tr>
   <% end %>
+
 </table>
 <%= simple_format "" %>
 <div id = "nav">
