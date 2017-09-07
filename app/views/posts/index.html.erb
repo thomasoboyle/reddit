@@ -1,3 +1,7 @@
+<% if logged_in? %>
+  <%= button_to 'submit a new text post', {controller: 'posts', action: 'new'}, method: :get, class:'button' %>
+<% end %>
+
 <table>
   <% @posts.each do |post| %>
     <tr>
