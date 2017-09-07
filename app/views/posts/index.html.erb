@@ -1,6 +1,30 @@
 <table>
   <% @posts.each do |post| %>
     <tr>
+      <td><%= post.score_total %></td>
+      <td>
+        <div class="vote">
+          <%= form_for Vote.new do |f| %>
+            <%= f.hidden_field "parent_type", :value => Post %>
+            <%= f.hidden_field "parent_id", :value => post.id %>
+            <%= f.hidden_field "user_id", :value => current_user.id %>
+            <%= f.hidden_field "score", :value => 1.to_i %>
+            <%= f.button :submit do %>
+              <i class="arrow up"></i>
+            <% end %>
+          <% end %>
+
+          <%= form_for Vote.new do |f| %>
+            <%= f.hidden_field "parent_type", :value => Post %>
+            <%= f.hidden_field "parent_id", :value => post.id %>
+            <%= f.hidden_field "user_id", :value => current_user.id %>
+            <%= f.hidden_field "score", value: -1 %>
+            <%= f.button :submit do %>
+              <i class="arrow down"></i>
+            <% end %>
+          <% end %>
+       </div>
+     </td>
       <td><%= image_tag("textpost.png", size: "60x60", alt: "Text Post") %></td>
       <td>
         <%= link_to post.title, post_path(post)%>
@@ -12,9 +36,8 @@
       </td>
     </tr>
   <% end %>
-
 </table>
-<%= simple_format "" %>
+
 <div id = "nav">
   <% if @page.to_i - 25 >= 0 %>
     <%= link_to 'Prev', posts_path(page: sprintf("%+d", @page.to_i - 25)) %>

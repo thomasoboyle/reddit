@@ -11,13 +11,18 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    resources :votes
   end
 
   resources :comments do
     resources :comments
+    resources :votes
   end
 
   resources :users do
     resources :comments
+  end
+
+  resources :votes do
   end
 end

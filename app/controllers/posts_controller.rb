@@ -4,7 +4,7 @@ before_action :set_page, only: [:index]
 PAGE_POSTS = 25
 
   def index
-    @posts = Post.order(:id).limit(PAGE_POSTS).offset(@page*PAGE_POSTS.to_i)
+    @posts = Post.all.offset(@page*PAGE_POSTS.to_i).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
   end
 
   def new
@@ -35,10 +35,11 @@ PAGE_POSTS = 25
   end
 
   def post_params
-		  params.require(:post).permit(:title, :text)
+		  params.require(:post).permit(:title, :text, :vote)
 	 end
 
   def set_page
     @page = params[:page] || 0
   end
+  
 end
