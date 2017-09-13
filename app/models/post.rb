@@ -2,8 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :parent
   has_many :votes, as: :parent
-	 validates :title, presence: true,
-										   length: { minimum: 5 }
+	 validates :title, presence: true, length: { minimum: 5 }
 
   def vote_total
     self.upvotes + self.downvotes
@@ -20,5 +19,4 @@ class Post < ApplicationRecord
   def downvotes
     self.votes.where(score: -1).size
   end
-  
 end

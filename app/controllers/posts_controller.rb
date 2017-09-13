@@ -4,7 +4,7 @@ before_action :set_page, only: [:index]
 PAGE_POSTS = 25
 
   def index
-    @posts = Post.all.offset(@page*PAGE_POSTS.to_i).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
+    @posts = Post.all.offset(@page*PAGE_POSTS).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
   end
 
   def new
@@ -29,17 +29,15 @@ PAGE_POSTS = 25
   end
 
   private
+    def find_post
+      @post = Post.find(params[:id])
+    end
 
-  def find_post
-    @post = Post.find(params[:id])
-  end
+    def post_params
+		    params.require(:post).permit(:title, :text, :vote)
+	   end
 
-  def post_params
-		  params.require(:post).permit(:title, :text, :vote)
-	 end
-
-  def set_page
-    @page = params[:page] || 0
-  end
-  
+    def set_page
+      @page = params[:page] || 0
+    end
 end
