@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
-before_action :find_post, only: [:show, :edit, :update, :destroy]
-before_action :set_page, only: [:index]
-PAGE_POSTS = 25
+  before_action :authenticate_logged_in, only: [:new, :create]
+  before_action :authenticate_owner, only: [:destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:index]
+  PAGE_POSTS = 25
 
   def index
     @posts = Post.all.offset(@page*PAGE_POSTS).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
@@ -37,7 +39,20 @@ PAGE_POSTS = 25
 		    params.require(:post).permit(:title, :text, :vote)
 	   end
 
-    def set_page
-      @page = params[:page] || 0
+  def set_page
+    @page = params[:page] || 0
+  end
+
+  def authenticate_logged_in
+    unless current_user
+      redirect_to signup_path
     end
+  end
+
+  def authenticate_owner
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to post_path
+    end
+  end
 end
