@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_logged_in, only: [:new, :create]
+  before_action :authenticate_owner, only: [:destroy]
   before_action :find_parent
 
   def show
@@ -16,15 +18,34 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+  end
+
   private
 
-    def comment_params
-      params[:comment][:user_id] = current_user.id
-      params.require(:comment).permit(:body, :user_id)
+  def authenticate_logged_in
+    unless current_user
+      redirect_to root_path
     end
+  end
 
-    def find_parent
-      @parent = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-      @parent = Post.find_by_id(params[:post_id]) if params[:post_id]
+  def authenticate_owner
+    @comment = Comment.find(params[:id])
+    unless @comment.user == current_user
+      redirect_to post_path
     end
+  end
+
+  def comment_params
+    params[:comment][:user_id] = current_user.id
+    params.require(:comment).permit(:body, :user_id)
+  end
+
+  def find_parent
+    @parent = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @parent = Post.find_by_id(params[:post_id]) if params[:post_id]
+  end
 end
