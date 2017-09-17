@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   PAGE_POSTS = 25
 
   def index
-    @posts = Post.order(:id).limit(PAGE_POSTS).offset(@page*PAGE_POSTS)
+    @posts = Post.all.offset(@page*PAGE_POSTS).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
   end
 
   def new
@@ -31,14 +31,13 @@ class PostsController < ApplicationController
   end
 
   private
+    def find_post
+      @post = Post.find(params[:id])
+    end
 
-  def find_post
-    @post = Post.find(params[:id])
-  end
-
-  def post_params
-		  params.require(:post).permit(:title, :text)
-	 end
+    def post_params
+		    params.require(:post).permit(:title, :text, :vote)
+	   end
 
   def set_page
     @page = params[:page] || 0

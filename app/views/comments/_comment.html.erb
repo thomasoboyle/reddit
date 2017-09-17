@@ -1,7 +1,8 @@
 <li>
-    <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %> ago
+   <%= link_to comment.user.username, controller: "users", action: "show", id: comment.user %> <%= comment.score_total %> points <%= time_ago_in_words(comment.created_at) %> ago
     <br>
     <%= comment.body %>
+
     <div class="reply-button">reply</div>
     <div class="reply-form">
       <%= form_for [comment, Comment.new] do |f| %>
@@ -9,5 +10,26 @@
         <%= f.submit "save" %>
       <% end %>
     </div>
-    <ul><%= render partial: 'comments/comment', collection: comment.comments %></ul>
+    <div class="vote">
+      <%= form_for Vote.new do |f| %>
+        <%= f.hidden_field "parent_type", :value => Comment %>
+        <%= f.hidden_field "parent_id", :value => comment.id %>
+        <%= f.hidden_field "user_id", :value => current_user.id %>
+        <%= f.hidden_field "score", :value => 1.to_i %>
+        <%= f.button :submit do %>
+          <i class="arrow up"></i>
+        <% end %>
+      <% end %>
+
+      <%= form_for Vote.new do |f| %>
+        <%= f.hidden_field "parent_type", :value => Comment %>
+        <%= f.hidden_field "parent_id", :value => comment.id %>
+        <%= f.hidden_field "user_id", :value => current_user.id %>
+        <%= f.hidden_field "score", value: -1 %>
+        <%= f.button :submit do %>
+          <i class="arrow down"></i>
+        <% end %>
+      <% end %>
+   </div>
+    <ul><%= render partial: 'comments/comment', collection: comment.comments.sort_by{|p| p.score_total}.reverse %></ul>
 </li>
