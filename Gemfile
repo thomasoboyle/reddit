@@ -32,8 +32,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'bootstrap-sass', '3.3.6'
 gem 'jquery-rails'
+# Use unicorn as the apps server
+gem 'unicorn'
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
