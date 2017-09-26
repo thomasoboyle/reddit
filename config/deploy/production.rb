@@ -1,3 +1,9 @@
+# ssh configuration options. Make sure the following works: $ ssh <deploy_user>@<server_ip>
+server '45.79.83.105', user: 'deployer', roles: %w{web app db}
+
+# only if your app already has a domain, then add:
+# set :nginx_server_name, 'mydomain.com'
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
