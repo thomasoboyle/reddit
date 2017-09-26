@@ -11,7 +11,9 @@
           <%= form_for Vote.new do |f| %>
             <%= f.hidden_field "parent_type", :value => Post %>
             <%= f.hidden_field "parent_id", :value => post.id %>
-            <%= f.hidden_field "user_id", :value => current_user.id %>
+            <% if current_user %>
+              <%= f.hidden_field "user_id", :value => current_user.id %>
+            <% end %>
             <%= f.hidden_field "score", :value => 1.to_i %>
             <%= f.button :submit do %>
               <i class="arrow up"></i>
@@ -21,7 +23,9 @@
           <%= form_for Vote.new do |f| %>
             <%= f.hidden_field "parent_type", :value => Post %>
             <%= f.hidden_field "parent_id", :value => post.id %>
-            <%= f.hidden_field "user_id", :value => current_user.id %>
+            <% if current_user %>
+              <%= f.hidden_field "user_id", :value => current_user.id %>
+            <% end %>
             <%= f.hidden_field "score", value: -1 %>
             <%= f.button :submit do %>
               <i class="arrow down"></i>
