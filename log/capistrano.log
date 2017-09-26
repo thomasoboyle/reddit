@@ -327,3 +327,288 @@ To update, run `gem install bundler --pre`
   INFO [c475cbf8] Running /usr/bin/env echo "Branch master (at a834b6d9be4cca46529bf4cb120dbddaf7731896) deployed as release 20170926042536 by ashleyelder" >> /home/deploy/reddit/revisions.log as deploy@45.79.83.105
  DEBUG [c475cbf8] Command: cd /home/deploy/reddit/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env echo "Branch master (at a834b6d9be4cca46529bf4cb120dbddaf7731896) deployed as release 20170926042536 by ashleyelder" >> /home/deploy/reddit/revisions.log )
   INFO [c475cbf8] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-09-25 21:42:51 -0700 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [b42acb3e] Running [ -d $HOME/.rbenv/versions/2.4.1 ] as deploy@45.79.83.105
+ DEBUG [b42acb3e] Command: [ -d $HOME/.rbenv/versions/2.4.1 ]
+ DEBUG [b42acb3e] Finished in 5.541 seconds with exit status 0 (successful).
+ DEBUG [cbb31dfa] Running /usr/bin/env which passenger as deploy@45.79.83.105
+ DEBUG [cbb31dfa] Command: /usr/bin/env which passenger
+ DEBUG [cbb31dfa] 	/usr/bin/passenger
+ DEBUG [cbb31dfa] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [7672e8a2] Running /usr/bin/env mkdir -p /tmp as deploy@45.79.83.105
+ DEBUG [7672e8a2] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /tmp )
+  INFO [7672e8a2] Finished in 0.151 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-reddit-production-ashleyelder.sh 0.0%
+  INFO Uploading /tmp/git-ssh-reddit-production-ashleyelder.sh 100.0%
+  INFO [2401b77b] Running /usr/bin/env chmod 700 /tmp/git-ssh-reddit-production-ashleyelder.sh as deploy@45.79.83.105
+ DEBUG [2401b77b] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env chmod 700 /tmp/git-ssh-reddit-production-ashleyelder.sh )
+  INFO [2401b77b] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO [15fe488a] Running /usr/bin/env git ls-remote git@github.com:ashleyelder/reddit.git HEAD as deploy@45.79.83.105
+ DEBUG [15fe488a] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env git ls-remote git@github.com:ashleyelder/reddit.git HEAD )
+ DEBUG [15fe488a] 	b060264e16062ee64398872071506d1df6d6b9a2	HEAD
+  INFO [15fe488a] Finished in 0.621 seconds with exit status 0 (successful).
+  INFO [9e2f8b46] Running /usr/bin/env mkdir -p /home/deploy/reddit/shared /home/deploy/reddit/releases as deploy@45.79.83.105
+ DEBUG [9e2f8b46] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/shared /home/deploy/reddit/releases )
+  INFO [9e2f8b46] Finished in 0.087 seconds with exit status 0 (successful).
+  INFO [0e2f1cb7] Running /usr/bin/env mkdir -p /home/deploy/reddit/shared/log /home/deploy/reddit/shared/tmp/pids /home/deploy/reddit/shared/tmp/cache /home/deploy/reddit/shared/tmp/sockets /home/deploy/reddit/shared/vendor/bundle /home/deploy/reddit/shared/public/system /home/deploy/reddit/shared/public/uploads /home/deploy/reddit/shared/public/assets as deploy@45.79.83.105
+ DEBUG [0e2f1cb7] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/shared/log /home/deploy/reddit/shared/tmp/pids /home/deploy/reddit/shared/tmp/cache /home/deploy/reddit/shared/tmp/sockets /home/deploy/reddit/shared/vendor/bundle /home/deploy/reddit/shared/public/system /home/deploy/reddit/shared/public/uploads /home/deploy/reddit/shared/public/assets )
+  INFO [0e2f1cb7] Finished in 0.122 seconds with exit status 0 (successful).
+  INFO [a732fc2e] Running /usr/bin/env mkdir -p /home/deploy/reddit/shared/config as deploy@45.79.83.105
+ DEBUG [a732fc2e] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/shared/config )
+  INFO [a732fc2e] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [768aa63e] Running [ -f /home/deploy/reddit/shared/config/database.yml ] as deploy@45.79.83.105
+ DEBUG [768aa63e] Command: [ -f /home/deploy/reddit/shared/config/database.yml ]
+ DEBUG [768aa63e] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [79b488f8] Running [ -f /home/deploy/reddit/shared/config/secrets.yml ] as deploy@45.79.83.105
+ DEBUG [79b488f8] Command: [ -f /home/deploy/reddit/shared/config/secrets.yml ]
+ DEBUG [79b488f8] Finished in 0.127 seconds with exit status 0 (successful).
+ DEBUG [62e346e3] Running [ -f /home/deploy/reddit/current/REVISION ] as deploy@45.79.83.105
+ DEBUG [62e346e3] Command: [ -f /home/deploy/reddit/current/REVISION ]
+ DEBUG [62e346e3] Finished in 0.128 seconds with exit status 0 (successful).
+ DEBUG [8b2a8679] Running /usr/bin/env cat /home/deploy/reddit/current/REVISION 2>/dev/null as deploy@45.79.83.105
+ DEBUG [8b2a8679] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env cat /home/deploy/reddit/current/REVISION 2>/dev/null )
+ DEBUG [8b2a8679] 	a834b6d9be4cca46529bf4cb120dbddaf7731896
+ DEBUG [8b2a8679] Finished in 0.128 seconds with exit status 0 (successful).
+ DEBUG [31e91226] Running [ -f /home/deploy/reddit/repo/HEAD ] as deploy@45.79.83.105
+ DEBUG [31e91226] Command: [ -f /home/deploy/reddit/repo/HEAD ]
+ DEBUG [31e91226] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/reddit/repo
+ DEBUG [63f3746b] Running if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [63f3746b] Command: if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi
+ DEBUG [63f3746b] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [d29de972] Running /usr/bin/env git remote set-url origin git@github.com:ashleyelder/reddit.git as deploy@45.79.83.105
+ DEBUG [d29de972] Command: cd /home/deploy/reddit/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env git remote set-url origin git@github.com:ashleyelder/reddit.git )
+  INFO [d29de972] Finished in 0.131 seconds with exit status 0 (successful).
+  INFO [646a99ed] Running /usr/bin/env git remote update --prune as deploy@45.79.83.105
+ DEBUG [646a99ed] Command: cd /home/deploy/reddit/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [646a99ed] 	Fetching origin
+ DEBUG [646a99ed] 	From github.com:ashleyelder/reddit
+ * [new branch]      fix_deploy_setup -> fix_deploy_setup
+   a834b6d..b060264  master     -> master
+  INFO [646a99ed] Finished in 1.130 seconds with exit status 0 (successful).
+ DEBUG [c37418ca] Running if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [c37418ca] Command: if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi
+ DEBUG [c37418ca] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [f35fefd7] Running /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259 as deploy@45.79.83.105
+ DEBUG [f35fefd7] Command: cd /home/deploy/reddit/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259 )
+  INFO [f35fefd7] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [15fd9472] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/reddit/releases/20170926044259 as deploy@45.79.83.105
+ DEBUG [15fd9472] Command: cd /home/deploy/reddit/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/reddit/releases/20170926044259 )
+  INFO [15fd9472] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [49edff70] Running if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [49edff70] Command: if test ! -d /home/deploy/reddit/repo; then echo "Directory does not exist '/home/deploy/reddit/repo'" 1>&2; false; fi
+ DEBUG [49edff70] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [aaf67926] Running /usr/bin/env git rev-list --max-count=1 master as deploy@45.79.83.105
+ DEBUG [aaf67926] Command: cd /home/deploy/reddit/repo && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-reddit-production-ashleyelder.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [aaf67926] 	b060264e16062ee64398872071506d1df6d6b9a2
+ DEBUG [aaf67926] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [d1e1d9bb] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [d1e1d9bb] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [d1e1d9bb] Finished in 0.124 seconds with exit status 0 (successful).
+  INFO [1338a934] Running /usr/bin/env echo "b060264e16062ee64398872071506d1df6d6b9a2" >> REVISION as deploy@45.79.83.105
+ DEBUG [1338a934] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env echo "b060264e16062ee64398872071506d1df6d6b9a2" >> REVISION )
+  INFO [1338a934] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [0b322e04] Running /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259/config as deploy@45.79.83.105
+ DEBUG [0b322e04] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259/config )
+  INFO [0b322e04] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [17cb1a80] Running [ -L /home/deploy/reddit/releases/20170926044259/config/database.yml ] as deploy@45.79.83.105
+ DEBUG [17cb1a80] Command: [ -L /home/deploy/reddit/releases/20170926044259/config/database.yml ]
+ DEBUG [17cb1a80] Finished in 0.130 seconds with exit status 1 (failed).
+ DEBUG [7e53e019] Running [ -f /home/deploy/reddit/releases/20170926044259/config/database.yml ] as deploy@45.79.83.105
+ DEBUG [7e53e019] Command: [ -f /home/deploy/reddit/releases/20170926044259/config/database.yml ]
+ DEBUG [7e53e019] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [469959fe] Running /usr/bin/env rm /home/deploy/reddit/releases/20170926044259/config/database.yml as deploy@45.79.83.105
+ DEBUG [469959fe] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env rm /home/deploy/reddit/releases/20170926044259/config/database.yml )
+  INFO [469959fe] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [ed6ed943] Running /usr/bin/env ln -s /home/deploy/reddit/shared/config/database.yml /home/deploy/reddit/releases/20170926044259/config/database.yml as deploy@45.79.83.105
+ DEBUG [ed6ed943] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/config/database.yml /home/deploy/reddit/releases/20170926044259/config/database.yml )
+  INFO [ed6ed943] Finished in 0.127 seconds with exit status 0 (successful).
+ DEBUG [b2965ca1] Running [ -L /home/deploy/reddit/releases/20170926044259/config/secrets.yml ] as deploy@45.79.83.105
+ DEBUG [b2965ca1] Command: [ -L /home/deploy/reddit/releases/20170926044259/config/secrets.yml ]
+ DEBUG [b2965ca1] Finished in 0.128 seconds with exit status 1 (failed).
+ DEBUG [96aa7928] Running [ -f /home/deploy/reddit/releases/20170926044259/config/secrets.yml ] as deploy@45.79.83.105
+ DEBUG [96aa7928] Command: [ -f /home/deploy/reddit/releases/20170926044259/config/secrets.yml ]
+ DEBUG [96aa7928] Finished in 0.128 seconds with exit status 1 (failed).
+  INFO [c8b07f67] Running /usr/bin/env ln -s /home/deploy/reddit/shared/config/secrets.yml /home/deploy/reddit/releases/20170926044259/config/secrets.yml as deploy@45.79.83.105
+ DEBUG [c8b07f67] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/config/secrets.yml /home/deploy/reddit/releases/20170926044259/config/secrets.yml )
+  INFO [c8b07f67] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [618d9ebc] Running /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259 /home/deploy/reddit/releases/20170926044259/tmp /home/deploy/reddit/releases/20170926044259/vendor /home/deploy/reddit/releases/20170926044259/public as deploy@45.79.83.105
+ DEBUG [618d9ebc] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259 /home/deploy/reddit/releases/20170926044259/tmp /home/deploy/reddit/releases/20170926044259/vendor /home/deploy/reddit/releases/20170926044259/public )
+  INFO [618d9ebc] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [667ea2f0] Running [ -L /home/deploy/reddit/releases/20170926044259/log ] as deploy@45.79.83.105
+ DEBUG [667ea2f0] Command: [ -L /home/deploy/reddit/releases/20170926044259/log ]
+ DEBUG [667ea2f0] Finished in 0.122 seconds with exit status 1 (failed).
+ DEBUG [f3ac7de6] Running [ -d /home/deploy/reddit/releases/20170926044259/log ] as deploy@45.79.83.105
+ DEBUG [f3ac7de6] Command: [ -d /home/deploy/reddit/releases/20170926044259/log ]
+ DEBUG [f3ac7de6] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [c03df55d] Running /usr/bin/env rm -rf /home/deploy/reddit/releases/20170926044259/log as deploy@45.79.83.105
+ DEBUG [c03df55d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env rm -rf /home/deploy/reddit/releases/20170926044259/log )
+  INFO [c03df55d] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO [1476e373] Running /usr/bin/env ln -s /home/deploy/reddit/shared/log /home/deploy/reddit/releases/20170926044259/log as deploy@45.79.83.105
+ DEBUG [1476e373] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/log /home/deploy/reddit/releases/20170926044259/log )
+  INFO [1476e373] Finished in 0.133 seconds with exit status 0 (successful).
+ DEBUG [9cc9b167] Running [ -L /home/deploy/reddit/releases/20170926044259/tmp/pids ] as deploy@45.79.83.105
+ DEBUG [9cc9b167] Command: [ -L /home/deploy/reddit/releases/20170926044259/tmp/pids ]
+ DEBUG [9cc9b167] Finished in 0.125 seconds with exit status 1 (failed).
+ DEBUG [1b0183b8] Running [ -d /home/deploy/reddit/releases/20170926044259/tmp/pids ] as deploy@45.79.83.105
+ DEBUG [1b0183b8] Command: [ -d /home/deploy/reddit/releases/20170926044259/tmp/pids ]
+ DEBUG [1b0183b8] Finished in 0.133 seconds with exit status 1 (failed).
+  INFO [9e227495] Running /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/pids /home/deploy/reddit/releases/20170926044259/tmp/pids as deploy@45.79.83.105
+ DEBUG [9e227495] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/pids /home/deploy/reddit/releases/20170926044259/tmp/pids )
+  INFO [9e227495] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [3c430c57] Running [ -L /home/deploy/reddit/releases/20170926044259/tmp/cache ] as deploy@45.79.83.105
+ DEBUG [3c430c57] Command: [ -L /home/deploy/reddit/releases/20170926044259/tmp/cache ]
+ DEBUG [3c430c57] Finished in 0.129 seconds with exit status 1 (failed).
+ DEBUG [c11c6789] Running [ -d /home/deploy/reddit/releases/20170926044259/tmp/cache ] as deploy@45.79.83.105
+ DEBUG [c11c6789] Command: [ -d /home/deploy/reddit/releases/20170926044259/tmp/cache ]
+ DEBUG [c11c6789] Finished in 0.121 seconds with exit status 1 (failed).
+  INFO [e2a527dc] Running /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/cache /home/deploy/reddit/releases/20170926044259/tmp/cache as deploy@45.79.83.105
+ DEBUG [e2a527dc] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/cache /home/deploy/reddit/releases/20170926044259/tmp/cache )
+  INFO [e2a527dc] Finished in 0.123 seconds with exit status 0 (successful).
+ DEBUG [42aa52cd] Running [ -L /home/deploy/reddit/releases/20170926044259/tmp/sockets ] as deploy@45.79.83.105
+ DEBUG [42aa52cd] Command: [ -L /home/deploy/reddit/releases/20170926044259/tmp/sockets ]
+ DEBUG [42aa52cd] Finished in 0.129 seconds with exit status 1 (failed).
+ DEBUG [d264e88e] Running [ -d /home/deploy/reddit/releases/20170926044259/tmp/sockets ] as deploy@45.79.83.105
+ DEBUG [d264e88e] Command: [ -d /home/deploy/reddit/releases/20170926044259/tmp/sockets ]
+ DEBUG [d264e88e] Finished in 0.122 seconds with exit status 1 (failed).
+  INFO [74c380e0] Running /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/sockets /home/deploy/reddit/releases/20170926044259/tmp/sockets as deploy@45.79.83.105
+ DEBUG [74c380e0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/tmp/sockets /home/deploy/reddit/releases/20170926044259/tmp/sockets )
+  INFO [74c380e0] Finished in 0.123 seconds with exit status 0 (successful).
+ DEBUG [44b793e7] Running [ -L /home/deploy/reddit/releases/20170926044259/vendor/bundle ] as deploy@45.79.83.105
+ DEBUG [44b793e7] Command: [ -L /home/deploy/reddit/releases/20170926044259/vendor/bundle ]
+ DEBUG [44b793e7] Finished in 0.126 seconds with exit status 1 (failed).
+ DEBUG [ed4fd316] Running [ -d /home/deploy/reddit/releases/20170926044259/vendor/bundle ] as deploy@45.79.83.105
+ DEBUG [ed4fd316] Command: [ -d /home/deploy/reddit/releases/20170926044259/vendor/bundle ]
+ DEBUG [ed4fd316] Finished in 0.128 seconds with exit status 1 (failed).
+  INFO [c9adf485] Running /usr/bin/env ln -s /home/deploy/reddit/shared/vendor/bundle /home/deploy/reddit/releases/20170926044259/vendor/bundle as deploy@45.79.83.105
+ DEBUG [c9adf485] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/vendor/bundle /home/deploy/reddit/releases/20170926044259/vendor/bundle )
+  INFO [c9adf485] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [b7e760ec] Running [ -L /home/deploy/reddit/releases/20170926044259/public/system ] as deploy@45.79.83.105
+ DEBUG [b7e760ec] Command: [ -L /home/deploy/reddit/releases/20170926044259/public/system ]
+ DEBUG [b7e760ec] Finished in 0.125 seconds with exit status 1 (failed).
+ DEBUG [da479125] Running [ -d /home/deploy/reddit/releases/20170926044259/public/system ] as deploy@45.79.83.105
+ DEBUG [da479125] Command: [ -d /home/deploy/reddit/releases/20170926044259/public/system ]
+ DEBUG [da479125] Finished in 0.127 seconds with exit status 1 (failed).
+  INFO [57374c8d] Running /usr/bin/env ln -s /home/deploy/reddit/shared/public/system /home/deploy/reddit/releases/20170926044259/public/system as deploy@45.79.83.105
+ DEBUG [57374c8d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/public/system /home/deploy/reddit/releases/20170926044259/public/system )
+  INFO [57374c8d] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [876c034d] Running [ -L /home/deploy/reddit/releases/20170926044259/public/uploads ] as deploy@45.79.83.105
+ DEBUG [876c034d] Command: [ -L /home/deploy/reddit/releases/20170926044259/public/uploads ]
+ DEBUG [876c034d] Finished in 0.122 seconds with exit status 1 (failed).
+ DEBUG [7b7e04ef] Running [ -d /home/deploy/reddit/releases/20170926044259/public/uploads ] as deploy@45.79.83.105
+ DEBUG [7b7e04ef] Command: [ -d /home/deploy/reddit/releases/20170926044259/public/uploads ]
+ DEBUG [7b7e04ef] Finished in 0.129 seconds with exit status 1 (failed).
+  INFO [b3121b45] Running /usr/bin/env ln -s /home/deploy/reddit/shared/public/uploads /home/deploy/reddit/releases/20170926044259/public/uploads as deploy@45.79.83.105
+ DEBUG [b3121b45] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/public/uploads /home/deploy/reddit/releases/20170926044259/public/uploads )
+  INFO [b3121b45] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [96ba28d9] Running [ -L /home/deploy/reddit/releases/20170926044259/public/assets ] as deploy@45.79.83.105
+ DEBUG [96ba28d9] Command: [ -L /home/deploy/reddit/releases/20170926044259/public/assets ]
+ DEBUG [96ba28d9] Finished in 0.125 seconds with exit status 1 (failed).
+ DEBUG [240629da] Running [ -d /home/deploy/reddit/releases/20170926044259/public/assets ] as deploy@45.79.83.105
+ DEBUG [240629da] Command: [ -d /home/deploy/reddit/releases/20170926044259/public/assets ]
+ DEBUG [240629da] Finished in 0.133 seconds with exit status 1 (failed).
+  INFO [29ac0fa4] Running /usr/bin/env ln -s /home/deploy/reddit/shared/public/assets /home/deploy/reddit/releases/20170926044259/public/assets as deploy@45.79.83.105
+ DEBUG [29ac0fa4] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/shared/public/assets /home/deploy/reddit/releases/20170926044259/public/assets )
+  INFO [29ac0fa4] Finished in 0.127 seconds with exit status 0 (successful).
+ DEBUG [b87bd875] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [b87bd875] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [b87bd875] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [4a9c9634] Running $HOME/.rbenv/bin/rbenv exec bundle check --path /home/deploy/reddit/shared/bundle as deploy@45.79.83.105
+ DEBUG [4a9c9634] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; $HOME/.rbenv/bin/rbenv exec bundle check --path /home/deploy/reddit/shared/bundle )
+ DEBUG [4a9c9634] 	The following gems are missing
+ DEBUG [4a9c9634] 	 * public_suffix (3.0.0)
+ DEBUG [4a9c9634] 	 * addressable (2.5.2)
+ DEBUG [4a9c9634] 	 * autoprefixer-rails (7.1.4.1)
+ DEBUG [4a9c9634] 	 * bindex (0.5.0)
+ DEBUG [4a9c9634] 	 * byebug (9.1.0)
+ DEBUG [4a9c9634] 	 * capistrano-bundler (1.3.0)
+ DEBUG [4a9c9634] 	 * capistrano-passenger (0.2.0)
+ DEBUG [4a9c9634] 	 * capistrano-rails (1.3.0)
+ DEBUG [4a9c9634] 	 * capistrano-rbenv (2.1.1)
+ DEBUG [4a9c9634] 	 * mini_mime (0.1.4)
+ DEBUG [4a9c9634] 	 * xpath (2.1.0)
+ DEBUG [4a9c9634] 	 * capybara (2.15.1)
+ DEBUG [4a9c9634] 	 * childprocess (0.8.0)
+ DEBUG [4a9c9634] 	 * ruby_dep (1.5.0)
+ DEBUG [4a9c9634] 	 * listen (3.1.5)
+ DEBUG [4a9c9634] 	 * rubyzip (1.2.1)
+ DEBUG [4a9c9634] 	 * selenium-webdriver (3.6.0)
+ DEBUG [4a9c9634] 	 * spring (2.0.2)
+ DEBUG [4a9c9634] 	 * spring-watcher-listen (2.0.1)
+ DEBUG [4a9c9634] 	 * web-console (3.5.1)
+ DEBUG [4a9c9634] 	Install missing gems with `bundle install`
+ DEBUG [4a9c9634] Finished in 0.392 seconds with exit status 1 (failed).
+  INFO [cd8de351] Running $HOME/.rbenv/bin/rbenv exec bundle install --path /home/deploy/reddit/shared/bundle --without development test --deployment --quiet as deploy@45.79.83.105
+ DEBUG [cd8de351] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; $HOME/.rbenv/bin/rbenv exec bundle install --path /home/deploy/reddit/shared/bundle --without development test --deployment --quiet )
+ DEBUG [cd8de351] 	The latest bundler is 1.16.0.pre.2, but you are currently running 1.15.4.
+To update, run `gem install bundler --pre`
+  INFO [cd8de351] Finished in 3.329 seconds with exit status 0 (successful).
+ DEBUG [2f39c596] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [2f39c596] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [2f39c596] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [41560459] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile as deploy@45.79.83.105
+ DEBUG [41560459] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" RAILS_ENV="production" RAILS_GROUPS="" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake assets:precompile )
+ DEBUG [41560459] 	Yarn executable was not detected in the system.
+ DEBUG [41560459] 	
+ DEBUG [41560459] 	Download Yarn at https://yarnpkg.com/en/docs/install
+ DEBUG [41560459] 	
+  INFO [41560459] Finished in 1.920 seconds with exit status 0 (successful).
+ DEBUG [d56454c2] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [d56454c2] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [d56454c2] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [b3504a5e] Running /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259/assets_manifest_backup as deploy@45.79.83.105
+ DEBUG [b3504a5e] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mkdir -p /home/deploy/reddit/releases/20170926044259/assets_manifest_backup )
+  INFO [b3504a5e] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [3b884a59] Running /usr/bin/env ls /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest* as deploy@45.79.83.105
+ DEBUG [3b884a59] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ls /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest* )
+ DEBUG [3b884a59] 	/home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest-6448365b7453d9d15d9b091ddd786abf.json
+ DEBUG [3b884a59] Finished in 0.141 seconds with exit status 0 (successful).
+ DEBUG [0b785a57] Running /usr/bin/env ls /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest* as deploy@45.79.83.105
+ DEBUG [0b785a57] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ls /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest* )
+ DEBUG [0b785a57] 	/home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest-6448365b7453d9d15d9b091ddd786abf.json
+ DEBUG [0b785a57] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [d77ffe24] Running /usr/bin/env cp /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest-6448365b7453d9d15d9b091ddd786abf.json /home/deploy/reddit/releases/20170926044259/assets_manifest_backup as deploy@45.79.83.105
+ DEBUG [d77ffe24] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env cp /home/deploy/reddit/releases/20170926044259/public/assets/.sprockets-manifest-6448365b7453d9d15d9b091ddd786abf.json /home/deploy/reddit/releases/20170926044259/assets_manifest_backup )
+  INFO [d77ffe24] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+ DEBUG [4e3c91c0] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [4e3c91c0] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [4e3c91c0] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [a6e68caa] Running $HOME/.rbenv/bin/rbenv exec bundle exec rake db:migrate as deploy@45.79.83.105
+ DEBUG [a6e68caa] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" RAILS_ENV="production" ; $HOME/.rbenv/bin/rbenv exec bundle exec rake db:migrate )
+  INFO [a6e68caa] Finished in 1.768 seconds with exit status 0 (successful).
+  INFO [3f2a6e2d] Running /usr/bin/env ln -s /home/deploy/reddit/releases/20170926044259 /home/deploy/reddit/releases/current as deploy@45.79.83.105
+ DEBUG [3f2a6e2d] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ln -s /home/deploy/reddit/releases/20170926044259 /home/deploy/reddit/releases/current )
+  INFO [3f2a6e2d] Finished in 0.131 seconds with exit status 0 (successful).
+  INFO [e7eabd82] Running /usr/bin/env mv /home/deploy/reddit/releases/current /home/deploy/reddit as deploy@45.79.83.105
+ DEBUG [e7eabd82] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env mv /home/deploy/reddit/releases/current /home/deploy/reddit )
+  INFO [e7eabd82] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [73338331] Running if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [73338331] Command: if test ! -d /home/deploy/reddit/releases/20170926044259; then echo "Directory does not exist '/home/deploy/reddit/releases/20170926044259'" 1>&2; false; fi
+ DEBUG [73338331] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG [83177be5] Running /usr/bin/env passenger -v as deploy@45.79.83.105
+ DEBUG [83177be5] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env passenger -v )
+ DEBUG [83177be5] 	Phusion Passenger 5.1.8
+ DEBUG [83177be5] 	
+ DEBUG [83177be5] Finished in 0.205 seconds with exit status 0 (successful).
+  INFO [0efad0bd] Running /usr/bin/env passenger-config restart-app /home/deploy/reddit --ignore-app-not-running as deploy@45.79.83.105
+ DEBUG [0efad0bd] Command: cd /home/deploy/reddit/releases/20170926044259 && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env passenger-config restart-app /home/deploy/reddit --ignore-app-not-running )
+ DEBUG [0efad0bd] 	Restarting /home/deploy/reddit/current/public (production)
+  INFO [0efad0bd] Finished in 0.284 seconds with exit status 0 (successful).
+ DEBUG [45598cb4] Running /usr/bin/env ls -x /home/deploy/reddit/releases as deploy@45.79.83.105
+ DEBUG [45598cb4] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env ls -x /home/deploy/reddit/releases )
+ DEBUG [45598cb4] 	20170925050720	20170925051323	20170925051655	20170925051941	20170926042536
+20170926044259
+ DEBUG [45598cb4] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 45.79.83.105
+  INFO [dd5cc767] Running /usr/bin/env rm -rf /home/deploy/reddit/releases/20170925050720 as deploy@45.79.83.105
+ DEBUG [dd5cc767] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env rm -rf /home/deploy/reddit/releases/20170925050720 )
+  INFO [dd5cc767] Finished in 0.152 seconds with exit status 0 (successful).
+ DEBUG [fa80353f] Running if test ! -d /home/deploy/reddit/releases; then echo "Directory does not exist '/home/deploy/reddit/releases'" 1>&2; false; fi as deploy@45.79.83.105
+ DEBUG [fa80353f] Command: if test ! -d /home/deploy/reddit/releases; then echo "Directory does not exist '/home/deploy/reddit/releases'" 1>&2; false; fi
+ DEBUG [fa80353f] Finished in 0.124 seconds with exit status 0 (successful).
+  INFO [18cd8071] Running /usr/bin/env echo "Branch master (at b060264e16062ee64398872071506d1df6d6b9a2) deployed as release 20170926044259 by ashleyelder" >> /home/deploy/reddit/revisions.log as deploy@45.79.83.105
+ DEBUG [18cd8071] Command: cd /home/deploy/reddit/releases && ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.1" ; /usr/bin/env echo "Branch master (at b060264e16062ee64398872071506d1df6d6b9a2) deployed as release 20170926044259 by ashleyelder" >> /home/deploy/reddit/revisions.log )
+  INFO [18cd8071] Finished in 0.126 seconds with exit status 0 (successful).

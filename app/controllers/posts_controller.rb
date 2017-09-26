@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def create
   	@post = current_user.posts.build(post_params)
   	if @post.save
+      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
       render 'new'

@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment = @parent.comments.new(comment_params)
     @comment.user = current_user
     if @parent.save && @comment.save
+      @vote = Vote.create(user_id: @comment.user_id, parent_type: "Comment", parent_id: @comment.id, score: 1)
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)

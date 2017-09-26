@@ -14,4 +14,4 @@
 
 <%= render 'comments/form' %>
 
-<ul> <%= render partial: 'comments/comment', collection: @post.comments %> </ul>
+<ul> <%= render partial: 'comments/comment', collection: @post.comments.sort_by{|p| p.score_total}.reverse %> </ul>
