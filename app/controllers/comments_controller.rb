@@ -25,6 +25,10 @@ class CommentsController < ApplicationController
     @comment.destroy
   end
 
+  def parent_post
+    @parent_post = Post.find(post_id: comment.parent_id)
+  end
+
   private
 
   def authenticate_logged_in

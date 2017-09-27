@@ -13,3 +13,19 @@
     </tr>
   </table>
 <% end %>
+
+<% @user.comments.each do |comment| %>
+  <table>
+    <tr><%= simple_format "" %>
+    <% if comment.parent_type == "Post"%>
+    <td><%= link_to Post.find(comment.parent_id).title, post_path(comment.parent_id)%></td>
+    <% end %>
+      <td><%= comment.body %></td>
+    </tr>
+    <tr>
+      <td><%="submitted #{time_ago_in_words(comment.created_at)} ago by "%>
+          <%= link_to comment.user.username, controller: "users", action: "show" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
