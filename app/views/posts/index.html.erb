@@ -1,5 +1,6 @@
 <% if logged_in? %>
-  <%= button_to 'submit a new text post', {controller: 'posts', action: 'new'}, method: :get, class:'button' %>
+  <%= button_to 'submit a new text post', {controller: 'posts', action: 'new_text'}, method: :get, class:'button' %><br/>
+  <%= button_to 'submit a new link', {controller: 'posts', action: 'new_link'}, method: :get, class:'button' %><br/>
 <% end %>
 
 <table>

@@ -9,11 +9,25 @@ class PostsController < ApplicationController
     @posts = Post.all.offset(@page*PAGE_POSTS).sort_by{|p| p.score_total}.reverse.take(PAGE_POSTS)
   end
 
-  def new
+  def new_text
   	@post = Post.new
   end
 
+  def new_link
+    @post = Post.new
+  end
+
   def show
+  end
+
+  def create_link
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
+      redirect_to @post
+    else
+      render 'new_link'
+    end
   end
 
   def create
@@ -22,7 +36,7 @@ class PostsController < ApplicationController
       @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
-      render 'new'
+      render 'new_text'
     end
   end
 
