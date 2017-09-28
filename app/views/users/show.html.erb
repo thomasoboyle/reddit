@@ -1,8 +1,8 @@
 <div class="h2" >
   <%= simple_format @user.username %>
 </div>
-<span class="h2"><%= rand(1000) %></span><%= " post karma" %>
+<span class="h2"><%= @user.post_karma %></span><%= " post karma" %>
 <%= simple_format "" %>
-<span class="h2"><%= rand(1000) %></span><%= " comment karma" %>
+<span class="h2"><%= @user.comment_karma %></span><%= " comment karma" %>
 <%= simple_format "" %>
 <%= render 'users/user_posts' %>
