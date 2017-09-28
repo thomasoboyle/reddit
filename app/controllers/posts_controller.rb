@@ -16,8 +16,8 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = current_user.posts.build(post_params)
-  	if @post.save
+    @post = current_user.posts.build(post_params)
+    if @post.save
       @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
@@ -36,8 +36,8 @@ class PostsController < ApplicationController
     end
 
     def post_params
-		    params.require(:post).permit(:title, :text, :vote)
-	   end
+      params.require(:post).permit(:title, :text, :vote)
+    end
 
     def set_page
       @page = params[:page] || 1
