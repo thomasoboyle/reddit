@@ -39,18 +39,18 @@
         <%="submitted #{time_ago_in_words(post.created_at)} ago by "%>
         <%= link_to post.user.username, controller: "users", action: "show", id: post.user %>
         <div class="bottom-links">
-          <%= simple_format link_to post.comments.count.to_s + " comment".pluralize(post.comments.count), post_path(post) %>
+          <%= simple_format link_to post.comment_count.to_s + " comment".pluralize(post.comments.count), post_path(post) %>
         </div>
       </td>
     </tr>
   <% end %>
 </table>
 
-<div id = "nav">
-  <% if @page.to_i - 25 >= 0 %>
-    <%= link_to 'Prev', posts_path(page: sprintf("%+d", @page.to_i - 25)) %>
+<div id = "page_nav">
+  <% if @page.to_i > 1 %>
+    <%= link_to 'Prev', posts_path(page: (@page.to_i - 1)) %>
   <% end %>
-  <% if @page.to_i + 25 < Post.count %>
-    <%= link_to 'Next', posts_path(page: sprintf("%+d", @page.to_i+25)) %>
+  <% if @page.to_i - 1 < Post.count/@posts_per_page.to_i %>
+    <%= link_to 'Next', posts_path(page: (@page.to_i + 1)) %>
   <% end %>
 </div>
