@@ -50,13 +50,8 @@ class PostsController < ApplicationController
     end
 
     def post_params
-<<<<<<< HEAD
-		    params.require(:post).permit(:title, :text, :vote, :url, :subreddit)
-	   end
-=======
-      params.require(:post).permit(:title, :text, :vote)
-    end
->>>>>>> 8e0dc7ec067dde70d9710f76deb9ba3403240703
+		  params.require(:post).permit(:title, :text, :vote, :url, :subreddit)
+	  end
 
     def set_page
       @page = params[:page] || 1
