@@ -19,4 +19,8 @@ class Post < ApplicationRecord
   def downvotes
     self.votes.where(score: -1).size
   end
+
+  def comment_count
+   Comment.where(post_id:self).size
+  end
 end

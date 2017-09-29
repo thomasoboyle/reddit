@@ -21,4 +21,23 @@ class User < ApplicationRecord
     username
   end
 
+  def post_karma
+    count = 0
+    self.posts.each do |post|
+      count += post.score_total
+    end
+    return count
+  end
+
+  def comment_karma
+    count = 0
+    self.comments.each do |comment|
+      count += comment.score_total
+    end
+    return count
+  end
+
+  def content
+    content = (Post.where(user:self) + Comment.where(user:self)).sort_by(&:created_at).reverse
+  end
 end
