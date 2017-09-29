@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get 'users/:username', to: 'users#show'
   get 'users/:username/user_posts', to: 'users#user_posts'
+  get 'posts/new_text', to: 'posts#new_text'
+  get 'posts/new_link', to: 'posts#new_link'
+  post 'posts/new_text', to: 'posts#create_text'
+  post 'posts/new_link', to: 'posts#create_link'
 
   root 'posts#index'
 
   resources :posts do
-    collection do
-      get 'new_text'
-      get 'new_link'
-    end
     resources :comments
     resources :votes
   end

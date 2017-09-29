@@ -1,4 +1,5 @@
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post do |f| %>
+  <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@post.errors.count, "error") %> prohibited
@@ -9,8 +10,8 @@
           <li><%= msg %></li>
         <% end %>
       </ul>
+     <% end %>
     </div>
-
 
   <p>
     <%= f.label :title %><br>
