@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_logged_in, only: [:new, :create]
+  before_action :authenticate_logged_in, only: [:new_text, :new_link, :create]
   before_action :authenticate_owner, only: [:destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :set_page, only: [:index]
@@ -8,20 +8,34 @@ class PostsController < ApplicationController
     @posts = Post.all.sort_by{|p| p.score_total}.reverse.drop((@page.to_i - 1)*posts_per_page).first(posts_per_page)
   end
 
-  def new
+  def new_link
   	@post = Post.new
+  end
+
+  def new_text
+    @post = Post.new
   end
 
   def show
   end
 
-  def create
+  def create_link
     @post = current_user.posts.build(post_params)
     if @post.save
       @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
-      render 'new'
+      render 'new_link'
+    end
+  end
+
+  def create_text
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
+      redirect_to @post
+    else
+      render 'new_text'
     end
   end
 
@@ -36,8 +50,8 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :text, :vote)
-    end
+		  params.require(:post).permit(:title, :text, :vote, :url, :subreddit)
+	  end
 
     def set_page
       @page = params[:page] || 1
