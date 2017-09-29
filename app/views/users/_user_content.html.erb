@@ -2,7 +2,7 @@
   <% @user.content.each do |content| %>
     <% if content.try(:title) %>
       <tr>
-        <td></td>
+        <td><%= image_tag("textpost.png", size: "60x60", alt: "Text Post") %></td>
         <td>
           <%= link_to content.title, post_path(content) %>
           <br/>
@@ -16,7 +16,7 @@
     <% end %>
     <% if content.try(:body) %>
       <tr>
-        <td width = 65px><%= image_tag("textpost.png", size: "60x60", alt: "Text Post") %></td>
+        <td width = 65px></td>
         <td>
           <% content_post = (Post.find_by_id(content.post_id)) %>
           <% @post = content_post %>
