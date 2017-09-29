@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_logged_in, only: [:new, :create]
+  before_action :authenticate_logged_in, only: [:new_text, :new_link, :create_link, :create_text]
   before_action :authenticate_owner, only: [:destroy]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :set_page, only: [:index]
@@ -20,6 +20,16 @@ class PostsController < ApplicationController
   def show
   end
 
+  def create_text
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
+      redirect_to @post
+    else
+      render 'new_text'
+    end
+  end
+
   def create_link
     @post = current_user.posts.build(post_params)
     if @post.save
@@ -27,16 +37,6 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       render 'new_link'
-    end
-  end
-
-  def create
-  	@post = current_user.posts.build(post_params)
-  	if @post.save
-      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
-      redirect_to @post
-    else
-      render 'new_text'
     end
   end
 
