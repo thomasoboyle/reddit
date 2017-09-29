@@ -36,4 +36,8 @@ class User < ApplicationRecord
     end
     return count
   end
+
+  def content
+    content = (Post.where(user:self) + Comment.where(user:self)).sort_by(&:created_at).reverse
+  end
 end

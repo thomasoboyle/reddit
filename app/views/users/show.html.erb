@@ -2,7 +2,7 @@
   <%= simple_format @user.username %>
 </div>
 <span class="h2"><%= @user.post_karma %></span><%= " post karma" %>
-<%= simple_format "" %>
+  <%= simple_format "" %>
 <span class="h2"><%= @user.comment_karma %></span><%= " comment karma" %>
-<%= simple_format "" %>
-<%= render 'users/user_posts' %>
+  <%= simple_format "" %>
+  <%= render 'users/user_content' %>
