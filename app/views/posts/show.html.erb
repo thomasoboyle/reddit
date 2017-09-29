@@ -3,7 +3,7 @@
 
 
 <p>
-  <%= link_to root_path do %>
+  <%= link_to @post.url do %>
     <%= simple_format @post.title %>
   <% end %>
 </p>
