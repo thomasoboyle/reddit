@@ -3,9 +3,13 @@
 
 
 <p>
-  <%= link_to @post.url do %>
+  <% if @post.try(:url) %>
+    <%= link_to @post.url do %>
+      <%= simple_format @post.title %>
+    <% end %>
+  <% else %>
     <%= simple_format @post.title %>
-  <% end %>
+    <% end %>
 </p>
 
 <p>
