@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
-      render 'new'
+      render 'new_link'
     end
   end
 
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-		    params.require(:post).permit(:title, :text, :vote)
+		    params.require(:post).permit(:title, :text, :vote, :url, :subreddit)
 	   end
 
   def set_page

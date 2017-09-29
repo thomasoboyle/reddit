@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
+    collection do
+      get 'new_text'
+      get 'new_link'
+    end
     resources :comments
     resources :votes
   end
