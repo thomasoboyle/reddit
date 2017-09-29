@@ -19,13 +19,23 @@ class PostsController < ApplicationController
   def show
   end
 
-  def create
+  def create_link
     @post = current_user.posts.build(post_params)
     if @post.save
       @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
       redirect_to @post
     else
-      render 'new'
+      render 'new_link'
+    end
+  end
+
+  def create_text
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      @vote = Vote.create(user_id: @post.user_id, parent_type: "Post", parent_id: @post.id, score: 1)
+      redirect_to @post
+    else
+      render 'new_text'
     end
   end
 
