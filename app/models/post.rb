@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  text       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#  url        :string
+#  subreddit  :string
+#
+
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :parent

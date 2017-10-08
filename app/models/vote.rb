@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id          :integer          not null, primary key
+#  score       :integer
+#  parent_type :string
+#  parent_id   :integer
+#  user_id     :integer
+#
+
 class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :parent, polymorphic: true

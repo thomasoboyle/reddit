@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id          :integer          not null, primary key
+#  score       :integer
+#  parent_type :string
+#  parent_id   :integer
+#  user_id     :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
